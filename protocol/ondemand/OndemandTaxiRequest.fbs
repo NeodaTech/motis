@@ -1,0 +1,43 @@
+namespace motis.ondemand;
+
+// JSON Example:
+// --
+// {
+//   "destination": { "type": "Module", "target": "/ondemand/taxi" },
+//   "content_type": "OndemandTaxiRequest",
+//   "content": {
+//      "id" : "enyenewl",
+//      "Shifts" : [
+//          { "start": 1212616413, "stop": 1212650139 },
+//          { "start": 1212677290, "stop": 1212742039 },
+//          { "start": 1212779168, "stop": 1212821517 },
+//          { "start": 1212865812, "stop": 1212914790 },
+//          { "start": 1212944838, "stop": 1212991838 }
+//      ],
+//      "SupportedAreas" : [
+//          {"Position" : { "lat" : 37.75892, "lng" : -122.44372 }, "Radius" : 50 }
+//      ]
+//   }
+// }
+
+
+table TaxiPosition {
+  lat: double;
+  lng: double;
+}
+
+table Shift {
+  start: int;
+  stop: int;
+}
+
+table Area {
+  Position: TaxiPosition;
+  Radius: int;
+}
+
+table OndemandTaxiRequest {
+  id:string;
+  Shifts:[Shift];
+  SupportedAreas:[Area];
+}

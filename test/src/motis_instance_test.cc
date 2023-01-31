@@ -32,8 +32,8 @@ motis_instance_test::motis_instance_test(
   }
 
   auto modules_cmdline_opt_patched = modules_cmdline_opt;
-  modules_cmdline_opt_patched.emplace_back("--ris.db_max_size=1048576");
-  modules_cmdline_opt_patched.emplace_back("--ris.clear_db=true");
+  //modules_cmdline_opt_patched.emplace_back("--ris.db_max_size=1048576");
+  //modules_cmdline_opt_patched.emplace_back("--ris.clear_db=true");
 
   std::vector<conf::configuration*> confs;
   for (auto const& module : instance_->modules()) {
@@ -56,9 +56,11 @@ motis_instance_test::motis_instance_test(
       import_opt.import_paths_.push_back(fmt::format("schedule:{}", dataset));
     }
   }
-
+  //import_opt.import_paths_.push_back("schedule:data/hrd");
+  import_opt.import_paths_.push_back("osm:data/norcal-latest.osm.pbf");
   try {
     clog_redirect::set_enabled(false);
+    //parser.print_used(std::cout);
     instance_->import(module_settings{modules}, dataset_opt, import_opt, true);
   } catch (loader::parser_error const& e) {
     LOG(logging::error) << "unable to parse schedule, problem at "

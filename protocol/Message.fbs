@@ -117,6 +117,9 @@ include "paxmon/PaxMonGetUniversesResponse.fbs";
 include "paxforecast/PaxForecastUpdate.fbs";
 include "paxforecast/PaxForecastApplyMeasuresRequest.fbs";
 include "paxforecast/PaxForecastApplyMeasuresResponse.fbs";
+include "ondemand/OndemandRequest.fbs";
+include "ondemand/OndemandResponse.fbs";
+include "ondemand/OndemandTaxiRequest.fbs";
 
 include "HTTPMessage.fbs";
 
@@ -302,7 +305,10 @@ union MsgContent {
   motis.paxmon.PaxMonGroupStatisticsResponse                              = 140,
   motis.paxmon.PaxMonDebugGraphRequest                                    = 141,
   motis.paxmon.PaxMonDebugGraphResponse                                   = 142,
-  motis.paxmon.PaxMonGetUniversesResponse                                 = 143
+  motis.paxmon.PaxMonGetUniversesResponse                                 = 143,
+  motis.ondemand.OndemandRequest                                          = 144,
+  motis.ondemand.OndemandResponse                                         = 145,
+  motis.ondemand.OndemandTaxiRequest                                      = 146
 }
 
 // Destination Examples:

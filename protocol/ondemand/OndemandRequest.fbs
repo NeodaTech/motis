@@ -1,0 +1,34 @@
+namespace motis.ondemand;
+
+// JSON Example:
+// --
+// {
+//   "destination": { "type": "Module", "target": "/ondemand/ondemand" },
+//   "content_type": "OndemandRequest",
+//   "content": {
+//      "PickupTime": 1211022191,
+//      "ArrivalTime": 1211022520,
+//      "RequestTime": 1209819395,
+//      "InputStartPosition": {
+//          "lat": 37.76211,
+//          "lng": -122.41934
+//      },
+//      "InputDestinationPosition": {
+//          "lat": 37.76224,
+//          "lng": -122.41937
+//      }
+//   }
+// }
+
+table ondemandPosition {
+  lat: double;
+  lng: double;
+}
+
+table OndemandRequest {
+  PickupTime:int;
+  ArrivalTime:int;
+  RequestTime:int;
+  InputStartPosition:ondemandPosition;
+  InputDestinationPosition:ondemandPosition;
+}
