@@ -1,3 +1,5 @@
+include "base/Position.fbs";
+
 namespace motis.ondemand;
 
 // JSON Example:
@@ -20,15 +22,10 @@ namespace motis.ondemand;
 //   }
 // }
 
-table ondemandPosition {
-  lat: double;
-  lng: double;
-}
-
 table OndemandRequest {
   PickupTime:int;
   ArrivalTime:int;
   RequestTime:int;
-  InputStartPosition:ondemandPosition;
-  InputDestinationPosition:ondemandPosition;
+  InputStartPosition:motis.Position;
+  InputDestinationPosition:motis.Position;
 }
